@@ -11,6 +11,8 @@
 
 body {
     background: #FFFAE1;
+    /*Stops overflow on sides */
+    overscroll-behavior-y: none;
 }
 
 /* Hero Styling */
