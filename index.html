@@ -19,22 +19,21 @@
                 <span class="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-2xl text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
                 <span class="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
                 <span class="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
-                <span class="relative">Find Tickets</span>
+                <span class="relative btn-search">Find Tickets</span>
                 </span>
-                <span class="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-lg"></span>
+                <span class="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-lg"><i class="input-event btn-close"></i></span>
             </a>
         </div>
     </section>
-    <!--Find Event Section-->
-    <section id="find-tickets" class="flex flex-wrap container:mx-auto">
-      <h3 class="items-stretch text-3xl ">Events</h3>
-      
-    </section>
-  
+    <!-- <section class="result-section">
+        </section> -->
+
+
+    
 
 
     <!--Weather Section-->
-    <section class="flex flex-wrap container:mx-auto">
+    <!-- <section class="flex flex-wrap container:mx-auto">
       <h3 class="text-3xl">Weather</h3>
       <form class="space-y-4 text-gray-700">
           <div class="flex flex-wrap">
@@ -46,18 +45,71 @@
           
       
         
-  </section>
+  </section> -->
 
-  <a href="#_" class="relative inline-block text-lg group">
+  <!-- <a href="#_" class="relative inline-block text-lg group">
     <span class="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-medium text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
     <span class="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
     <span class="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
     <span class="relative">Search</span>
     </span>
     <span class="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-lg"></span>
-  </a>
+  </a> -->
+
+  <!-- Search field and history field -->
+    <div class = "flex justify-center">
+        <div class = "card  min-w-sm max-w-sm border border-gray-100 bg-gray-50   transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-900 text-purple-50 rounded-md">
+          <div class= "text-lg font-bold">
+                <h5 class="text-md mb-2 px-4 pt-4">Search for a City</h5>
+                <div class="flex justify-between">
+                    <input type="text" id ="city-search" class="container mx-auto sm:px-4 max-w-full mx-auto sm:px-4" placeholder="Enter city name only" aria-label="City Name" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                    <button class="btn btn-info text-muted" type="button" id="search-button">Search</button>
+                    </div>
+                </div>
+                <button class="flex justify-center items-center w-96" type="button" id="clear-history">Clear history</button>
+                <form id="history"></form>
+            </div>
+
+<!-- TODAYS CURRENT FORECAST -->
+            <div class= "flex items-center p-4">
+                <div class="col-lg-5 card m-3 d-none bg-info" id="todays-weather">
+                    <div class="card-body">
+                        <h3 id="city-name" class="mt-2 py-1 h-12px text-md font-semibold w-12px  rounded right-1 bottom-1 px-4"></h3>
+                        <img id="weather-picture" alt="weatherIconGraphic">
+                        <p id="desc"></p>
+                        <p id="temp"></p>
+                        <p id="hum"></p>
+                        <p id="wind"></p>
+                        <p id="uv"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- APPENDING ELEMENTS TO CREATE THE FIVE DAY FORECAST WITH JS -->
+<div class=" card text-center bg-info text-muted p-sm-1 rounded">
+        <h3>5 Day Forecast</h3>
+    </div>       
+
+    <section class="flex justify-content">
+        <div id="fiveday-header"></div>
+            <!-- <div class="col-12"></div> -->
+            <div class="card  min-w-sm max-w-sm border border-gray-100 bg-gray-50   transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-600 text-purple-50 rounded-md forecast"></div>
+            <div class="card  min-w-sm max-w-sm border border-gray-100 bg-gray-50   transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-600 text-purple-50 rounded-md forecast"></div>
+            <div class="card  min-w-sm max-w-sm border border-gray-100 bg-gray-50   transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-600 text-purple-50 rounded-md forecast"></div>
+            <div class="card  min-w-sm max-w-sm border border-gray-100 bg-gray-50   transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-600 text-purple-50 rounded-md forecast"></div>
+            <div class="card  min-w-sm max-w-sm border border-gray-100 bg-gray-50   transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-600 text-purple-50 rounded-md forecast"></div>
+        </div>
+        </div>
+    </section>
+            </div>
+        </div>
+    </div>
 
 
+    
+    
     <!--Footer Section-->
     <footer class="relative px-5 py-3 bg-neutral-800">
       <h2 class="absolute right-5 text-white">Made by: Alexander Havers, Johan Herrera, and Gabriella Pinto.</h2>
@@ -66,6 +118,7 @@
       </div>
     </footer>
     <!--JavaScript Link-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
