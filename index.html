@@ -11,71 +11,27 @@
   </head>
   <body class="">
     <!--Hero-->
-    <section class="hero">
+    <header>
+        <section class="hero">
+            <div class="hero-inner">
+                <h1>Event-Horizon</h1>
+                <!--Find Tickets Button (Takes you to section)-->
+                <a href="#find-tickets" class="relative inline-block text-lg group">
+                    <span class="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-2xl text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
+                    <span class="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
+                    <span class="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
+                    <span class="relative btn-search">Find Tickets</span>
+                    </span>
+                    <span class="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-lg"><i class="input-event btn-close"></i></span>
+                </a>
+            </div>
+        </section>
+    </header>
 
-        <div class="hero-inner">
-            <h1>Event-Horizon</h1>
-            <!--Find Tickets Button (Takes you to section)-->
-            <a href="#find-tickets" class="relative inline-block text-lg group">
-                <span class="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-2xl text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
-                <span class="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
-                <span class="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
-                <span class="relative btn-search">Find Tickets</span>
-                </span>
-                <span class="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-lg"><i class="input-event btn-close"></i></span>
-            </a>
-        </div>
-    </section>
-    <!-- <section class="result-section">
-        </section> -->
 <!-- Main -->
     <main>
-        <!-- Search Section -->
-        <section class="search-section">
-            <div class="search-container">
-                
-                <div class="group">
-                    <input required="" type="text" class="input input-event">
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Search Event</label>
-                </div>
-
-                <div class="group">
-                    <input required="" type="text" class="input input-city">
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>State</label>
-                </div>
-
-                <div class="group">
-                    <input required="" type="text" class="input input-month">
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Date</label>
-                </div>
-
-                <button class="btn btn-search">Search</button>
-
-            </div>
-        </section>
-
-        <!-- Result Section -->
         <section class="result-section">
           <div class="cards-container"></div>
-        </section>
-
-        <!-- Alert Section -->
-        <section class="alert-section">
-            <div class="alert-container">
-                <div class="alert-close">
-                    <i class="fa-solid fa-xmark btn-close"></i>
-                </div>
-                <div class="alert-messege">
-                    <p>You have to put correct values!</p>
-                    <i class="fa-solid fa-circle-exclamation"></i>
-                </div>
-            </div>
         </section>
 
     </main>
