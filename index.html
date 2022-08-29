@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event-Horizon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
@@ -27,7 +28,57 @@
     </section>
     <!-- <section class="result-section">
         </section> -->
+<!-- Main -->
+    <main>
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                
+                <div class="group">
+                    <input required="" type="text" class="input input-event">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Search Event</label>
+                </div>
 
+                <div class="group">
+                    <input required="" type="text" class="input input-city">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>State</label>
+                </div>
+
+                <div class="group">
+                    <input required="" type="text" class="input input-month">
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Date</label>
+                </div>
+
+                <button class="btn btn-search">Search</button>
+
+            </div>
+        </section>
+
+        <!-- Result Section -->
+        <section class="result-section">
+          <div class="cards-container"></div>
+        </section>
+
+        <!-- Alert Section -->
+        <section class="alert-section">
+            <div class="alert-container">
+                <div class="alert-close">
+                    <i class="fa-solid fa-xmark btn-close"></i>
+                </div>
+                <div class="alert-messege">
+                    <p>You have to put correct values!</p>
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     
 
@@ -59,23 +110,23 @@
   <!-- Search field and history field -->
     <div class = "flex justify-center">
         <div class = "card  min-w-sm max-w-sm border border-gray-100 bg-gray-50   transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-900 text-purple-50 rounded-md">
-          <div class= "text-lg font-bold">
-                <h5 class="text-md mb-2 px-4 pt-4">Search for a City</h5>
-                <div class="flex justify-between">
-                    <input type="text" id ="city-search" class="container mx-auto sm:px-4 max-w-full mx-auto sm:px-4" placeholder="Enter city name only" aria-label="City Name" aria-describedby="button-addon2">
+          <div class= "flex flex-wrap">
+                <h5>Search for a City</h5>
+                <div class="relative flex items-stretch w-full mb-3">
+                    <input type="text" id ="city-search" class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded" placeholder="Enter city name only" aria-label="City Name" aria-describedby="button-addon2">
                     <div class="input-group-append">
-                    <button class="btn btn-info text-muted" type="button" id="search-button">Search</button>
+                    <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-teal-500 text-white hover:bg-teal-600 text-gray-700" type="button" id="search-button">Search</button>
                     </div>
                 </div>
-                <button class="flex justify-center items-center w-96" type="button" id="clear-history">Clear history</button>
+                <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-teal-500 text-white hover:bg-teal-600 m-6 text-gray-700" type="button" id="clear-history">Clear history</button>
                 <form id="history"></form>
             </div>
 
 <!-- TODAYS CURRENT FORECAST -->
-            <div class= "flex items-center p-4">
-                <div class="col-lg-5 card m-3 d-none bg-info" id="todays-weather">
-                    <div class="card-body">
-                        <h3 id="city-name" class="mt-2 py-1 h-12px text-md font-semibold w-12px  rounded right-1 bottom-1 px-4"></h3>
+            <div class= "w-full lg:w-3/4 pr-4 pl-4">
+                <div class="hidden" id="todays-weather">
+                    <div class="flex-auto p-6">
+                        <h3 id="city-name" class="city-name align-middle"></h3>
                         <img id="weather-picture" alt="weatherIconGraphic">
                         <p id="desc"></p>
                         <p id="temp"></p>
@@ -88,18 +139,18 @@
         </div>
     </div>
 <!-- APPENDING ELEMENTS TO CREATE THE FIVE DAY FORECAST WITH JS -->
-<div class=" card text-center bg-info text-muted p-sm-1 rounded">
+<div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 text-center bg-teal-500 text-gray-700 sm:p-1 rounded">
         <h3>5 Day Forecast</h3>
     </div>       
 
-    <section class="flex justify-content">
+    <section class="container mx-auto sm:px-6 flex flex-wrap  my-5">
         <div id="fiveday-header"></div>
             <!-- <div class="col-12"></div> -->
-            <div class="card  min-w-sm max-w-sm border border-gray-100 bg-gray-50   transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-600 text-purple-50 rounded-md forecast"></div>
-            <div class="card  min-w-sm max-w-sm border border-gray-100 bg-gray-50   transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-600 text-purple-50 rounded-md forecast"></div>
-            <div class="card  min-w-sm max-w-sm border border-gray-100 bg-gray-50   transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-600 text-purple-50 rounded-md forecast"></div>
-            <div class="card  min-w-sm max-w-sm border border-gray-100 bg-gray-50   transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-600 text-purple-50 rounded-md forecast"></div>
-            <div class="card  min-w-sm max-w-sm border border-gray-100 bg-gray-50   transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-600 text-purple-50 rounded-md forecast"></div>
+            <div class="md:w-1/6 pr-4 pl-4 forecast bg-teal-600 text-white m-2 rounded"></div>
+            <div class="md:w-1/6 pr-4 pl-4 forecast bg-teal-500 text-white m-2 rounded"></div>
+            <div class="md:w-1/6 pr-4 pl-4 forecast bg-teal-300 text-white m-2 rounded"></div>
+            <div class="md:w-1/6 pr-4 pl-4 forecast bg-teal-500 text-white m-2 rounded"></div>
+            <div class="md:w-1/6 pr-4 pl-4 forecast bg-teal-600 text-white m-2 rounded"></div>
         </div>
         </div>
     </section>

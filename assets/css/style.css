@@ -1,42 +1,44 @@
 /* Importing Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 /* Universal Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  /* font-family: "DN Sans", sans-serif; */
 }
 
 body {
-    background: #FFFAE1;
-    /*Stops overflow on sides */
-    overscroll-behavior-y: none;
+  background: #fffae1;
+  /*Stops overflow on sides */
+  overscroll-behavior-y: none;
 }
 
 /* Hero Styling */
 .hero {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url("../images/concert-sun-pic.jpg");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../images/concert-sun-pic.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .hero h1 {
-    font-size: 5em;
-    margin-top: 0;
-    margin-bottom: 0.5em;
-    color: white;
+  font-size: 5em;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: white;
 }
 
 .find-event {
-    margin: 0; 
+  margin: 0;
 }
