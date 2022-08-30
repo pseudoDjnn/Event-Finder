@@ -231,9 +231,9 @@ function cardsDisplay(data) {
     const textAddress = document.createElement(`span`);
 
     // Adding Classes
-    card.classList.add(`card`);
-    cardImg.classList.add(`card-img`);
-    img.classList.add(`img`);
+    card.classList.add(`card`, `bg-contain`, `bg-white`, `flex`, `content-center`, `flex-col`, `m-6`, `w-90`, `h-fit`);
+    cardImg.classList.add(`card-img`,`w-fit`, `h-fit`);
+    img.classList.add(`img`, `w-full`, `object-cover`, `w-fit`, `h-fit`);
     cardInfo.classList.add(`card-info`);
     textTitle.classList.add(`text-title`);
     cardTextInfo.classList.add(`card-text_info`);
