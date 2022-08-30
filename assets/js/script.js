@@ -59,17 +59,17 @@ function weatherApp() {
         if (res.data.current.uvi < 3) {
           uvCard.setAttribute(
             "class",
-            "text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+            "text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-9 py-1.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
           );
         } else if (res.data.current.uvi < 7) {
           uvCard.setAttribute(
             "class",
-            "text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
+            "text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-9 py-1.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
           );
         } else {
           uvCard.setAttribute(
             "class",
-            "text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+            "text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-9 py-1.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
           );
         }
         console.log(res.data.current.uvi);
@@ -139,13 +139,13 @@ function weatherApp() {
   searchEl.addEventListener("click", function () {
     const searchTerm = cityEl.value;
     cityEl.value = ``;
-    if ( searchTerm === `` ) {
+    if (searchTerm === ``) {
       alert(`The input it's empty`);
     } else {
       getWeatherData(searchTerm);
-    savedSearchHistory.push(searchTerm);
-    localStorage.setItem("search", JSON.stringify(savedSearchHistory));
-    renderSearchHistory();
+      savedSearchHistory.push(searchTerm);
+      localStorage.setItem("search", JSON.stringify(savedSearchHistory));
+      renderSearchHistory();
     }
   });
 
@@ -164,7 +164,7 @@ function weatherApp() {
       historyItem.setAttribute("readonly", true);
       historyItem.setAttribute(
         "class",
-        "block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded block bg-teal-500"
+        "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       );
       historyItem.setAttribute("value", savedSearchHistory[i]);
       historyItem.addEventListener("click", function () {
@@ -231,9 +231,27 @@ function cardsDisplay(data) {
     const textAddress = document.createElement(`span`);
 
     // Adding Classes
-    card.classList.add(`card`, `bg-contain`, `bg-white`, `flex`, `content-center`, `flex-col`, `m-6`, `w-90`, `h-fit`);
-    cardImg.classList.add(`card-img`,`w-fit`, `h-fit`);
-    img.classList.add(`img`, `w-full`, `object-cover`, `w-fit`, `h-fit`);
+    card.classList.add(
+      `card`,
+      `bg-contain`,
+      `bg-white`,
+      `flex`,
+      `content-center`,
+      `flex-col`,
+      `m-6`,
+      `w-90`,
+      `h-fit`,
+      `rounded`
+    );
+    cardImg.classList.add(`card-img`, `w-fit`, `h-fit`);
+    img.classList.add(
+      `img`,
+      `w-full`,
+      `object-cover`,
+      `w-fit`,
+      `h-fit`,
+      `rounded`
+    );
     cardInfo.classList.add(`card-info`);
     textTitle.classList.add(`text-title`);
     cardTextInfo.classList.add(`card-text_info`);
