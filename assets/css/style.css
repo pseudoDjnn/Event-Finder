@@ -12,7 +12,8 @@
 }
 
 body {
-  background: #fffae1;
+  background-color: #f2e8f2;
+  background-image: radial-gradient(circle at top right, #162719 60%, #f4ac45);
   /*Stops overflow on sides */
   overscroll-behavior-y: none;
 }
