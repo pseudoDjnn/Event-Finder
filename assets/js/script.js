@@ -27,7 +27,7 @@ function weatherApp() {
     axios.get(queryURL).then(function (res) {
       // console.log(res);
 
-      todaysWeather.classList.remove("d-none");
+      todaysWeather.classList.remove("hidden");
 
       // display current weather information for today
       let todaysDate = new Date(res.data.dt * 1000);
@@ -57,13 +57,22 @@ function weatherApp() {
 
         // conditional created to show the strength of UV rays
         if (res.data.current.uvi < 3) {
-          uvCard.setAttribute("class", "badge badge-success");
+          uvCard.setAttribute(
+            "class",
+            "text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+          );
         } else if (res.data.current.uvi < 7) {
-          uvCard.setAttribute("class", "badge badge-warning");
+          uvCard.setAttribute(
+            "class",
+            "text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:focus:ring-yellow-900"
+          );
         } else {
-          uvCard.setAttribute("class", "badge badge-danger");
+          uvCard.setAttribute(
+            "class",
+            "text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+          );
         }
-        // console.log(res.data.current.uvi);
+        console.log(res.data.current.uvi);
         uvCard.innerText = res.data.current.uvi;
         todaysUV.innerText = "UV Index of: ";
         todaysUV.append(uvCard);
@@ -78,7 +87,7 @@ function weatherApp() {
         "&units=imperial";
       axios.get(forecastQueryURL).then(function (res) {
         console.log(res);
-        fiveDayForecast.classList.remove("d-none");
+        fiveDayForecast.classList.remove("hidden");
 
         // setup five day forecast
         const fiveDay = document.querySelectorAll(".forecast");
@@ -126,25 +135,26 @@ function weatherApp() {
     });
   }
 
-  // Get history from local storage if any
+  //   Get history from local storage if any
   searchEl.addEventListener("click", function () {
     const searchTerm = cityEl.value;
-    getWeatherData(searchTerm);
+    cityEl.value = ``;
+    if ( searchTerm === `` ) {
+      alert(`The input it's empty`);
+    } else {
+      getWeatherData(searchTerm);
     savedSearchHistory.push(searchTerm);
     localStorage.setItem("search", JSON.stringify(savedSearchHistory));
     renderSearchHistory();
+    }
   });
 
-  // Clear History button
+  //   Clear History button
   clearEl.addEventListener("click", function () {
     localStorage.clear();
     searchHistory = [];
     renderSearchHistory();
   });
-
-  // function k2f(K) {
-  //   return Math.floor((K - 273.15) * 1.8 + 32);
-  // }
 
   function renderSearchHistory() {
     history.innerHTML = "";
@@ -152,7 +162,10 @@ function weatherApp() {
       const historyItem = document.createElement("input");
       historyItem.setAttribute("type", "text");
       historyItem.setAttribute("readonly", true);
-      historyItem.setAttribute("class", "form-control d-block bg-info");
+      historyItem.setAttribute(
+        "class",
+        "block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded block bg-teal-500"
+      );
       historyItem.setAttribute("value", savedSearchHistory[i]);
       historyItem.addEventListener("click", function () {
         getWeatherData(historyItem.value);
@@ -169,19 +182,99 @@ function weatherApp() {
 
 weatherApp();
 
-const btnForCallApi = document.querySelector(`.btn`);
-const CLIENT_ID = `Mjg2MTA4MDN8MTY2MTIxMjIzMS41NDk3NjAz`;
+// ---------------------------
+// SeatGeek API
+// ---------------------------
 
-btnForCallApi.addEventListener(`click`, callAPI);
+// Cards Const
+const resultSection = document.querySelector(`.result-section`);
+const cardsContainer = document.querySelector(`.cards-container`);
+let firstSearch = false;
 
-function callAPI() {
+// API Client ID
+const clientId = `Mjg2MTA4MDN8MTY2MTIxMjIzMS41NDk3NjAz`;
+
+// Functions
+// Local events, it's the function default, this function runs when the app it's open and it search events on your location.
+
+function localEvents() {
+  // Calling the API
   fetch(
-    `https://api.seatgeek.com/2/events?geoip=true&client_id=${CLIENT_ID}&per_page=25&page=3&sort=score.desc`
+    `https://api.seatgeek.com/2/events?geoip=true&client_id=${clientId}&per_page=50&page=3&sort=score.desc`
   )
     .then((response) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+      // Function for create and display the cards on the screen
+      cardsDisplay(data);
     });
+}
+
+localEvents();
+
+function cardsDisplay(data) {
+  for (let i = 0; i < 9; i++) {
+    //Create Elements
+    const card = document.createElement(`div`);
+    const cardImg = document.createElement(`div`);
+    const img = document.createElement(`img`);
+    const cardInfo = document.createElement(`div`);
+    const textTitle = document.createElement(`p`);
+    const cardTextInfo = document.createElement(`div`);
+    const textBody = document.createElement(`p`);
+    const textDate = document.createElement(`p`);
+    const cardFooter = document.createElement(`div`);
+    const textPrice = document.createElement(`span`);
+    const cardLocation = document.createElement(`div`);
+    const textState = document.createElement(`span`);
+    const textAddress = document.createElement(`span`);
+
+    // Adding Classes
+    card.classList.add(`card`);
+    cardImg.classList.add(`card-img`);
+    img.classList.add(`img`);
+    cardInfo.classList.add(`card-info`);
+    textTitle.classList.add(`text-title`);
+    cardTextInfo.classList.add(`card-text_info`);
+    textBody.classList.add(`text-body`);
+    textDate.classList.add(`text-date`);
+    cardFooter.classList.add(`card-footer`);
+    textPrice.classList.add(`text-title`, `text-price`);
+    cardLocation.classList.add(`card-location`);
+    textState.classList.add(`text-title`, `text-state`);
+    textAddress.classList.add(`text-address`);
+
+    // appendChild
+    cardsContainer.appendChild(card);
+    // resultSection.appendChild(card);
+    card.appendChild(cardImg);
+    cardImg.appendChild(img);
+    card.appendChild(cardInfo);
+    cardInfo.appendChild(textTitle);
+    cardInfo.appendChild(cardTextInfo);
+    cardTextInfo.appendChild(textBody);
+    cardTextInfo.appendChild(textDate);
+    card.appendChild(cardFooter);
+    cardFooter.appendChild(textPrice);
+    cardFooter.appendChild(cardLocation);
+    cardLocation.appendChild(textState);
+    cardLocation.appendChild(textAddress);
+
+    // Printing Data
+    // Img
+    img.src = data.events[i].performers[0].image;
+
+    // Title
+    textTitle.innerText = data.events[i].performers[0].short_name;
+
+    // Text Info
+    textPrice.innerText = `$ ${data.events[i].stats.lowest_price}`;
+    textBody.innerText = data.events[i].taxonomies[0].name;
+    textDate.innerText = data.events[i].datetime_local;
+
+    // Text Price & Location
+    textState.innerText = data.events[i].venue.display_location;
+    textAddress.innerText = data.events[i].venue.address;
+  }
 }

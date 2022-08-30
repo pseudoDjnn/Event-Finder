@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event-Horizon</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -24,63 +25,71 @@
             </a>
         </div>
     </section>
-    <!--Find Event Section-->
-    <section id="find-tickets" class="flex flex-wrap container:mx-auto">
-      <h3 class="text-3xl">Events</h3>
-        <form class="space-y-4 text-gray-700">
-            <div class="flex flex-wrap">
-              <div class="w-full">
-                <label class="block mb-1" for="formGridCode_card">Search Event:</label>
-                <input class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" id="formGridCode_card"/>
-              </div>
+
+<!-- Main -->
+    <main>
+        <section class="result-section">
+            <div class="cards-container flex"></div>
+          </section>
+    </main>
+
+  <!-- Search field and history field -->
+    <div class = "flex justify-center">
+        <div class = "card  min-w-sm max-w-sm border border-gray-100 bg-gray-50   transition-shadow test  shadow-lg hover:shadow-shadow-xl w-full bg-green-900 text-purple-50 rounded-md">
+          <div class= "flex flex-wrap">
+                <h5>Search for a City</h5>
+                <div class="relative flex items-stretch w-full mb-3">
+                    <input type="text" id ="city-search" class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded" placeholder="Enter city name only" aria-label="City Name" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                    <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-teal-500 text-white hover:bg-teal-600 text-gray-700" type="button" id="search-button">Search</button>
+                    </div>
+                </div>
+                <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-teal-500 text-white hover:bg-teal-600 m-6 text-gray-700" type="button" id="clear-history">Clear history</button>
+                <form id="history"></form>
             </div>
-       <!--Search Event Button-->
-        <a href="#_" class="relative inline-block text-lg group">
-          <span class="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-medium text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
-          <span class="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
-          <span class="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
-          <span class="relative">Search</span>
-          </span>
-          <span class="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-lg"></span>
-        </a>
-    </section>
 
-   
-
-
-    <!--Weather Section-->
-    <section class="flex flex-wrap container:mx-auto">
-      <h3 class="text-3xl">Weather</h3>
-      <form class="space-y-4 text-gray-700">
-          <div class="flex flex-wrap">
-            <div class="w-full">
-              <label class="block mb-1" for="formGridCode_card">Search City:</label>
-              <input class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" id="formGridCode_card"/>
+<!-- TODAYS CURRENT FORECAST -->
+            <div class= "w-full lg:w-3/4 pr-4 pl-4">
+                <div class="hidden" id="todays-weather">
+                    <div class="flex-auto p-6">
+                        <h3 id="city-name" class="city-name align-middle"></h3>
+                        <img id="weather-picture" alt="weatherIconGraphic">
+                        <p id="desc"></p>
+                        <p id="temp"></p>
+                        <p id="hum"></p>
+                        <p id="wind"></p>
+                        <p id="uv"></p>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+<!-- APPENDING ELEMENTS TO CREATE THE FIVE DAY FORECAST WITH JS -->
+<div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300 text-center bg-teal-500 text-gray-700 sm:p-1 rounded">
+        <h3>5 Day Forecast</h3>
+    </div>       
+
+    <section class="container mx-auto sm:px-6 flex flex-wrap  my-5">
+        <div id="fiveday-header"></div>
+            <!-- <div class="col-12"></div> -->
+            <div class="md:w-1/6 pr-4 pl-4 forecast bg-teal-600 text-white m-2 rounded"></div>
+            <div class="md:w-1/6 pr-4 pl-4 forecast bg-teal-500 text-white m-2 rounded"></div>
+            <div class="md:w-1/6 pr-4 pl-4 forecast bg-teal-300 text-white m-2 rounded"></div>
+            <div class="md:w-1/6 pr-4 pl-4 forecast bg-teal-500 text-white m-2 rounded"></div>
+            <div class="md:w-1/6 pr-4 pl-4 forecast bg-teal-600 text-white m-2 rounded"></div>
           </div>
-          
-      
-        
-  </section>
-
-  <a href="#_" class="relative inline-block text-lg group">
-    <span class="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-medium text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
-    <span class="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
-    <span class="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
-    <span class="relative">Search</span>
-    </span>
-    <span class="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-lg"></span>
-  </a>
-
-
+        </div>
+    </section>
+            </div>
+        </div>
+    </div>
     <!--Footer Section-->
-    <footer class="relative px-5 py-3 bg-neutral-800">
-      <h2 class="absolute right-5 text-white">Made by: Alexander Havers, Johan Herrera, and Gabriella Pinto.</h2>
-      <div class="text-white">
-        © 2022 Event-Horizon, Inc.
-      </div>
+    <footer class="flex relative px-5 py-3 bg-neutral-800">
+      <h3 class="flex-1 right-5 text-white">Made by: Alexander Havers, Johan Herrera, Gabriella Pinto, and Victoria Ervin.</h3>
+      <h3 class="text-white">© 2022 Event-Horizon, Inc.</h3>
     </footer>
     <!--JavaScript Link-->
-    <link rel="script" href="./assets/js/script.js">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
