@@ -185,32 +185,6 @@ weatherApp();
 // ---------------------------
 // SeatGeek API
 // ---------------------------
-// function eventApp() {
-//   // Client ID for the API
-//   const CLIENT_ID = `Mjg2MTA4MDN8MTY2MTIxMjIzMS41NDk3NjAz`;
-
-//   // Const Event Section (Create Variables)
-//   const eventInput = document.querySelector(`#event-input`);
-//   const placeInput = document.querySelector(`#place-input`);
-//   const dateInput = document.querySelector(`#date-input`);
-
-//   fetch(
-//     `https://api.seatgeek.com/2/events?geoip=107.170.145.187&client_id=${CLIENT_ID}&per_page=25&page=3&sort=score.desc`
-//   )
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .then((data) => {
-//       //   console.log(data);
-//       // console.log(data.events[0].performers[0].name);
-//       //   console.log(data.events[0].title);
-//       //   console.log(data.events[0].datetime_utc);
-//       //   console.log(data.events[0].venue.display_location);
-//       //   console.log(data.events[0].stats.average_price);
-//     });
-// }
-
-// eventApp();
 
 // Cards Const
 const resultSection = document.querySelector(`.result-section`);
