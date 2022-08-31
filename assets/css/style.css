@@ -44,3 +44,9 @@ body {
 .find-event {
   margin: 0;
 }
+
+@media (min-width: 360px) {
+  section {
+    flex-wrap: wrap;
+  }
+}

@@ -140,7 +140,8 @@ function weatherApp() {
     const searchTerm = cityEl.value;
     cityEl.value = ``;
     if (searchTerm === ``) {
-      alert(`The input it's empty`);
+      window.location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+      // alert(`The input it's empty`);
     } else {
       getWeatherData(searchTerm);
       savedSearchHistory.push(searchTerm);
