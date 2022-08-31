@@ -234,23 +234,24 @@ function cardsDisplay(data) {
     card.classList.add(
       `card`,
       `bg-contain`,
-      `bg-white`,
+      `bg-yellow-500`,
       `flex`,
       `content-center`,
       `flex-col`,
       `m-6`,
       `w-90`,
       `h-fit`,
-      `rounded`
+      `rounded`,
+      `font-medium`
     );
     cardImg.classList.add(`card-img`, `w-fit`, `h-fit`);
     img.classList.add(
       `img`,
+      `rounded-t-lg`,
       `w-full`,
       `object-cover`,
       `w-fit`,
-      `h-fit`,
-      `rounded`
+      `h-fit`
     );
     cardInfo.classList.add(`card-info`);
     textTitle.classList.add(`text-title`);
@@ -260,7 +261,7 @@ function cardsDisplay(data) {
     cardFooter.classList.add(`card-footer`);
     textPrice.classList.add(`text-title`, `text-price`);
     cardLocation.classList.add(`card-location`);
-    textState.classList.add(`text-title`, `text-state`);
+    textState.classList.add(`text-title`, `text-state`, `flex`);
     textAddress.classList.add(`text-address`);
 
     // appendChild
